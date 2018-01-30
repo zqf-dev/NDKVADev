@@ -1,29 +1,57 @@
 package com.zqf.ndkaudiovideodemo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+
+import java.io.File;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
+
+    // Used to load the 'native-lib' library on application startup.
+    static {
+        System.loadLibrary("native-lib");
+    }
+
+    private String rootPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String inFilePath;
+    private String outFilePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-    // Example of a call to a native method
-    TextView tv = (TextView) findViewById(R.id.sample_text);
-    tv.setText(stringFromJNI());
+        initFile();
+        initView();
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
+    //加载音、视频文件
+    private void initFile() {
+        inFilePath = rootPath.concat("/DownLoad/TestNdk.wmv");
+        outFilePath = rootPath.concat("/DownLoad/TestNdk.yuv");
+        File file = new File(outFilePath);
+        if (file.exists()) {
+            Log.e("Tag", "存在");
+        } else {
+            try {
+                Log.e("Tag", "不存在");
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
+    private void initView() {
+        //测试NDK-FFmpeg配置
+        findViewById(R.id.test_ndk_config_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FFmpegUtils.cppTestFFmpegConfig();
+            }
+        });
     }
 }
