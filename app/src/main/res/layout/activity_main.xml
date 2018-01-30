@@ -7,9 +7,22 @@
     android:layout_height="match_parent"
     tools:context="com.zqf.ndkaudiovideodemo.MainActivity">
 
-    <Button
-        android:id="@+id/test_ndk_config_btn"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="测试NDK-FFmpeg配置"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/test_ndk_config_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试NDK-FFmpeg配置"/>
+
+        <Button
+            android:id="@+id/test_ndk_video_decode_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NDK-FFmpeg视频解码"/>
+    </LinearLayout>
+
 </RelativeLayout>

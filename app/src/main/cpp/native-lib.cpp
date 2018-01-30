@@ -21,6 +21,10 @@ extern "C"{
 //测试环境
 JNIEXPORT void JNICALL Java_com_zqf_ndkaudiovideodemo_FFmpegUtils_cppTestFFmpegConfig(JNIEnv *env, jobject jobj);
 
+//2.NDK音视频编解码：FFmpeg-视频解码-视频像素数据(YUV420P)
+JNIEXPORT void JNICALL Java_com_zqf_ndkaudiovideodemo_FFmpegUtils_cppFFmpegVideoDecode(
+                    JNIEnv *env, jobject jobj,jstring infilepath,jstring outfilepath);
+
 }
 
 
@@ -28,4 +32,14 @@ JNIEXPORT void JNICALL Java_com_zqf_ndkaudiovideodemo_FFmpegUtils_cppTestFFmpegC
 
         const char* config= avcodec_configuration();
         __android_log_print(ANDROID_LOG_INFO,"main","配置信息：%s",config);
+}
+
+//2.NDK音视频编解码：FFmpeg-视频解码-视频像素数据(YUV420P)
+JNIEXPORT void JNICALL Java_com_zqf_ndkaudiovideodemo_FFmpegUtils_cppFFmpegVideoDecode(
+                    JNIEnv *env, jobject jobj,jstring infilepath,jstring outfilepath){
+
+        //第一步 注册组件
+        //例如：视频解码器、音频解码器、视频编码器、音频编码器、封装格式等…
+        av_register_all();
+
 }

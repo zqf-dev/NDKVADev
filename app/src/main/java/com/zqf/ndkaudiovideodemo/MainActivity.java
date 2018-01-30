@@ -53,5 +53,12 @@ public class MainActivity extends AppCompatActivity {
                 FFmpegUtils.cppTestFFmpegConfig();
             }
         });
+        //测试wmv格式视频解码为yuv格式
+        findViewById(R.id.test_ndk_video_decode_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FFmpegUtils.cppFFmpegVideoDecode(inFilePath, outFilePath);
+            }
+        });
     }
 }

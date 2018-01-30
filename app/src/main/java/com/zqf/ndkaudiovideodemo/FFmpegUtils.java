@@ -11,5 +11,5 @@ public class FFmpegUtils {
     //测试FFmpeg配置环境
     public static native void cppTestFFmpegConfig();
 
-
+    public static native void cppFFmpegVideoDecode(String inFilePath, String outFilePath);
 }
