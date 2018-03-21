@@ -1,4 +1,4 @@
-package com.zqf.ndkaudiovideodemo;
+﻿package com.zqf.ndkaudiovideodemo;
 
 import android.os.Bundle;
 import android.os.Environment;
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private String rootPath = Environment.getExternalStorageDirectory().getAbsolutePath();
     private String inFilePath;
     private String outFilePath;
+    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
