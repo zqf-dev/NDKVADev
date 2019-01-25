@@ -4,7 +4,7 @@ android NDK音视频编解码学习
 
 一、NDK音视频基础
 
-1、Android Studio搭建NDK开发环境; &nbsp <https://blog.csdn.net/Ae_fring/article/details/79224388></br>
+1、Android Studio搭建NDK开发环境; &emsp <https://blog.csdn.net/Ae_fring/article/details/79224388></br>
 
 2、Android Studio配置FFmepg开发环境;</br>
 3、视频播放原理分析;</br>
